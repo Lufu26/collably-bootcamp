@@ -1,26 +1,26 @@
-console.log("hello from script.js");
+const userProfile = {
+    username: "George",
+    age: 23,
+    skills:["HTML", "CSS", "JavaScript"],
+}
 
-const name = "George";
-const age = 23;
-const isStudent = true;
+console.log(userProfile.username);
+console.log(userProfile.skills[0]);
 
-console.log(name);
-console.log(age);
-console.log(isStudent);
+function displayWelcomeMessage(user){
+    console.log(`We are happy to see  you ${user} you are welcome to our website`);
+    
+}
 
-let info = `My name is ${name} & I am ${age} years  old`;
+displayWelcomeMessage(userProfile.username);
 
-console.log(info);
+function checkLoginStatus(profile) {
+    if (userProfile.username) {
+        return "User is logged in";
+    } else {
+        return "User is not logged in";
+    }
+}
 
-const favNum1 = 10;
-const favNum2 = 30;
-let sum = favNum1 + favNum2;
-let product = favNum1 * favNum2;
-console.log(sum);
-console.log(product);
-
-
-
-
-
-
+const statusMessage = checkLoginStatus(userProfile);
+console.log(statusMessage);
