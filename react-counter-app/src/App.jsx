@@ -1,24 +1,28 @@
-import './App.css'
-import {useState} from 'react';
+import UserProfile from './components/UserProfile';
 
 function App() {
-  const [count, setCount] = useState(0);
-  const handleIncrement = () => {
-    setCount(count + 1);
-  };
-  const handleDecrement = () => {
-    setCount(count - 1);
-  };
+  const users = [
+  { id: 1, name: 'Bona S', job: 'Lead Developer', avatar: 'https://i.pravatar.cc/150?img=1' },
+  { id: 2, name: 'Alice Smith', job: 'UI/UX Designer', avatar: 'https://i.pravatar.cc/150?img=2' },
+  { id: 3, name: 'Charlie Brown', job: 'Project Manager', avatar: 'https://i.pravatar.cc/150?img=3' }
+];
   return (
-    <>
-    <div style={{textAlign: "center", marginTop: "50"}}>
-      <h1>React Counter</h1>
-      <p style={{font: "48px"}}>{count}</p>
+    <div>
+  <div>
+    <h1 style={{ textAlign: 'center' }}>User Profiles</h1>
+    <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
+      {users.map(user => (
+        <UserProfile
+          key={user.id} 
+          name={user.name}
+          job={user.job}
+          avatar={user.avatar}
+        />
+      ))}
     </div>
-    <button onClick={handleDecrement} style={{marginRight: "10px"}}>Decrement</button>
-    <button onClick={handleIncrement}>Increment</button>
-    </>
+  </div>
+);
+    </div>
   );
 }
-
-export default App
+export default App;
